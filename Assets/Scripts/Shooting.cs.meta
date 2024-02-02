@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3dc196028dc2c2d409c994068a9b7ff9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - jetBullet: {fileID: 2429352125141678700, guid: 06790bd7fe382d84aa2f3bfbfc45ec14, type: 3}
+  - spawnPoint1: {instanceID: 0}
+  - spawnPoint2: {instanceID: 0}
+  - flash: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
