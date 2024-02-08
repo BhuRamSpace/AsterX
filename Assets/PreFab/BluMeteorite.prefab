@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8440683515475457436}
   - component: {fileID: 4533267329338819363}
   - component: {fileID: 7867834808671393530}
+  - component: {fileID: 3837513200933030207}
+  - component: {fileID: -6945608653408134775}
   m_Layer: 0
   m_Name: BluMeteorite
-  m_TagString: Untagged
+  m_TagString: Meteoriti
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,4 +100,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transform: {fileID: 8440683515475457436}
-  speed: 4
+  speed: 5
+  explosion: {fileID: 391974832799558255, guid: 6951b2c40dc0b6f419fda9818f5bd55b, type: 3}
+--- !u!68 &3837513200933030207
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8381309767063451439}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.96636695, y: 0.6445767}
+  - {x: -1.1563991, y: 0.6144513}
+  - {x: -1.4531175, y: 0.3135425}
+  - {x: -1.5317428, y: -0.01501159}
+  - {x: -1.4553745, y: -0.26753807}
+  - {x: -1.3174653, y: -0.45588914}
+  - {x: -1.0778099, y: -0.59828424}
+  - {x: -0.56405175, y: -0.69687915}
+  - {x: -0.16319036, y: -0.5204127}
+  - {x: 0.18158937, y: -0.60962963}
+  - {x: 1.3226472, y: 0.14791311}
+  - {x: -0.38380706, y: 0.6219978}
+  - {x: -0.85277176, y: 0.65890056}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!50 &-6945608653408134775
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8381309767063451439}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
