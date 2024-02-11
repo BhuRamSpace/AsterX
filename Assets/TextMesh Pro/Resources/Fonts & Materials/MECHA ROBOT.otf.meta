@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ebbdef87284ea7145bba3ad5c91eb11d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - MECHA ROBOT
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: aa86b1f49764a31439d24a0e48469aa4, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
