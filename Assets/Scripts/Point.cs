@@ -6,12 +6,12 @@ using UnityEngine.Events;
 
 public class Point : MonoBehaviour
 {
-    public Text myScoreText;
+   /* public Text myScoreText;
     public int scoreNum;
-
+   */
     void Start()
     {
-        scoreNum = 0;
-        myScoreText.text = "Score: " + scoreNum;
+        //scoreNum = 0;
+        //myScoreText.text = "Score: " + scoreNum;
     }
 }

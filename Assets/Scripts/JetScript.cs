@@ -9,6 +9,7 @@ public class JetScript : MonoBehaviour
     public float speed2 = -5f;
     public float rotationSpeed = 5f;
     public GameObject explosion;
+    public GameController gameController;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +56,8 @@ public class JetScript : MonoBehaviour
      {
          if(collision.gameObject.tag == "Meteoriti")
          {
-             Destroy(gameObject);
+            gameController.GameOver();
+            Destroy(gameObject);
             GameObject expJet=Instantiate(explosion,transform.position,Quaternion.identity);
             Destroy(expJet,0.4f);
         }
