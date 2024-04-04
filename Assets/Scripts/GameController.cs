@@ -7,12 +7,10 @@ public class GameController : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject pauseButton;
     public GameObject gameOver;
+
     // Start is called before the first frame update
     void Start()
     {
-        pauseMenu.SetActive(false);
-        pauseButton.SetActive(true);
-        gameOver.SetActive(false);
         
     }
 
@@ -32,6 +30,12 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         gameOver.SetActive(true);
-        pauseButton.SetActive(false);
+    }
+
+    public void resumeGame()
+    {
+        pauseMenu.SetActive(false);
+        pauseButton.SetActive(true);
+        Time.timeScale = 1f;
     }
 }
