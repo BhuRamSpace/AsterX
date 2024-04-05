@@ -5,11 +5,12 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 5f;
-   // private Point point;
+    private PointManager pointManager;
+
     // Start is called before the first frame update
     void Start()
     {
-       // point = GameObject.Find("Point").GetComponent<Point>();
+       pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
     }
 
     // Update is called once per frame
@@ -26,8 +27,8 @@ public class Bullet : MonoBehaviour
     {
         if (collisionB.gameObject.tag == "Meteoriti")
         {
+            pointManager.UpdateScore(50);
             Destroy(gameObject);
-         //   point.UpdateScore(50);
         }
     }
 
