@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveMeteore : MonoBehaviour
 {
-    public Transform myTransform;
+    public Transform transform;
     public float speed = 8.0f;
     public GameObject explosion;
 
@@ -17,8 +17,8 @@ public class MoveMeteore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myTransform.position -= new Vector3(0, speed * Time.deltaTime, 0);
-        if (myTransform.position.y <= -10)
+        transform.position -= new Vector3(0, speed * Time.deltaTime, 0);
+        if (transform.position.y <= -10)
         {
             Destroy(gameObject);
         }
@@ -28,7 +28,7 @@ public class MoveMeteore : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
             Destroy(gameObject);
-            GameObject expJet = Instantiate(explosion, myTransform.position, Quaternion.identity);
+            GameObject expJet = Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(expJet, 0.4f);
     }
  
