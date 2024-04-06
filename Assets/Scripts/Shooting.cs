@@ -41,9 +41,6 @@ public class Shooting : MonoBehaviour
             yield return new WaitForSeconds(bulletSpawnTime);
             Fire();
             flash.SetActive(false);
-
-            //  yield return new WaitForSeconds(0.04f);
-
         }
     }
 }
