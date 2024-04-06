@@ -5,13 +5,14 @@ using PlayFab;
 using PlayFab.ClientModels;
 using PlayFab.MultiplayerModels;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayFabManager : MonoBehaviour
 {
     [Header("UI")]
-    public Text messageText;
-    public InputField emailInput;
-    public InputField passwordInput;
+    public TMP_Text messageText;
+    public TMP_InputField emailInput;
+    public TMP_InputField passwordInput;
 
 
     //Register/Login/ResetPassword

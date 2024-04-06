@@ -607,9 +607,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a304f1eb1d5df90458c0cbf957e47377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageText: {fileID: 0}
-  emailInput: {fileID: 0}
-  passwordInput: {fileID: 0}
+  messageText: {fileID: 1798806464}
+  emailInput: {fileID: 86599285}
+  passwordInput: {fileID: 1882719408}
 --- !u!1 &388263822
 GameObject:
   m_ObjectHideFlags: 0
