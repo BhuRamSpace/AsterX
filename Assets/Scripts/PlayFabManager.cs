@@ -17,6 +17,13 @@ public class PlayFabManager : MonoBehaviour
     //Register/Login/ResetPassword
     public void RegisterButton()
     {
+
+        if(passwordInput.text.Length < 6)
+        {
+            messageText.text = "Password too short!";
+            return;
+        }
+
         var request = new RegisterPlayFabUserRequest
         {
             Email = emailInput.text,
@@ -28,6 +35,8 @@ public class PlayFabManager : MonoBehaviour
     void OnRegisterSuccess(RegisterPlayFabUserResult result) {
         messageText.text = "Registered and logged in!";
     }
+
+  
 
 
 
@@ -54,10 +63,14 @@ public class PlayFabManager : MonoBehaviour
 
     void OnError(PlayFabError error)
     {
-        Debug.Log("Error while Logging in/Creating account!");
+        messageText.text = error.ErrorMessage;
         Debug.Log(error.GenerateErrorReport());
     }
 
+
+
+
+    //                      CLASSIFICA    
     public void SendLeaderboard(int score)
     {
         var request = new UpdatePlayerStatisticsRequest
@@ -76,5 +89,24 @@ public class PlayFabManager : MonoBehaviour
     void OnLeaderboardUpdate(UpdatePlayerStatisticsResult result)
     {
         Debug.Log("Successfull leaderboard sent");
+    }
+
+    public void GetLeaderboard()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "PlatformScore",
+            StartPosition = 0,
+            MaxResultsCount = 10,
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnError);
+
+        void OnLeaderboardGet(GetLeaderboardResult result)
+        {
+            foreach (var item in result.Leaderboard)
+            {
+                Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
+            }
+        }
     }
 }
