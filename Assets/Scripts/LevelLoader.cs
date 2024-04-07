@@ -20,6 +20,6 @@ public class LevelLoader : MonoBehaviour
 
     public void Reload()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level1");
     }
 }
