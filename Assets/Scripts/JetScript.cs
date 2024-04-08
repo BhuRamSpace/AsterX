@@ -8,6 +8,8 @@ public class JetScript : MonoBehaviour
     public float speed = 5f;
     public float speed2 = -5f;
     public float rotationSpeed = 5f;
+    public GameObject explosion;
+    public GameController gameController;
 
     // Start is called before the first frame update
     void Start()
@@ -48,4 +50,16 @@ public class JetScript : MonoBehaviour
             pos.x = Mathf.Clamp(pos.x, -2f, 2f);
             transform.position = pos;
     }
+
+
+     private void OnTriggerEnter2D(Collider2D collision)
+     {
+         if(collision.gameObject.tag == "Meteoriti")
+         {
+            gameController.GameOver();
+            Destroy(gameObject);
+            GameObject expJet=Instantiate(explosion,transform.position,Quaternion.identity);
+            Destroy(expJet,0.4f);
+        }
+     }
 }
