@@ -37,8 +37,16 @@ public class PlayFabManager : MonoBehaviour
         messageText.text = "Registered and logged in!";
     }
 
-  
 
+    public void LoginButton()
+    {
+        var request = new LoginWithEmailAddressRequest
+        {
+            Email = emailInput.text,
+            Password = passwordInput.text
+        };
+        PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnError);
+    }
 
 
     // Start is called before the first frame update
@@ -52,9 +60,16 @@ public class PlayFabManager : MonoBehaviour
     {
         var request = new LoginWithCustomIDRequest
         {
-            CustomId = SystemInfo.deviceUniqueIdentifier,CreateAccount = true
+            CustomId = SystemInfo.deviceUniqueIdentifier,
+            CreateAccount = true
         };
         PlayFabClientAPI.LoginWithCustomID(request, OnSuccess, OnError);
+    }
+
+    void OnLoginSuccess(LoginResult result)
+    {
+        Debug.Log("Successful login/account create!");
+      
     }
 
     void OnSuccess(LoginResult result)
