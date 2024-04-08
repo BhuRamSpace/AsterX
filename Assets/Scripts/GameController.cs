@@ -32,6 +32,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         gameOver.SetActive(true);
+
     }
 
     public void resumeGame()
@@ -40,4 +41,5 @@ public class GameController : MonoBehaviour
         pauseButton.SetActive(true);
         Time.timeScale = 1f;
     }
+
 }
