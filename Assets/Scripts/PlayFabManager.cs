@@ -6,6 +6,8 @@ using PlayFab.ClientModels;
 using PlayFab.MultiplayerModels;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System;
 
 public class PlayFabManager : MonoBehaviour
 {
@@ -16,7 +18,8 @@ public class PlayFabManager : MonoBehaviour
 
 
     //Register/Login/ResetPassword
-    public void RegisterButton()
+    #region Buttom Functions
+    public void RegisterUser()
     {
 
         if(passwordInput.text.Length < 6)
@@ -33,60 +36,67 @@ public class PlayFabManager : MonoBehaviour
         };
         PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, OnError);
     }
-    void OnRegisterSuccess(RegisterPlayFabUserResult result) {
-        messageText.text = "Registered and logged in!";
-    }
 
 
-    public void LoginButton()
+    public void Login()
     {
         var request = new LoginWithEmailAddressRequest
         {
+
             Email = emailInput.text,
-            Password = passwordInput.text
+            Password = passwordInput.text,
+        
         };
         PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnError);
+    }
+
+    public void RecoverUser()
+    {
+        var request = new SendAccountRecoveryEmailRequest
+        {
+
+            Email = emailInput.text,
+            TitleId = "C5719",
+
+        };
+        PlayFabClientAPI.SendAccountRecoveryEmail(request, OnRecoverySuccess, OnError);
+    }
+
+    private void OnRecoverySuccess(SendAccountRecoveryEmailResult result)
+    {
+        messageText.text = "Recovery Mail Sent";
+    }
+
+
+
+    void OnRegisterSuccess(RegisterPlayFabUserResult Result) {
+        messageText.text = "New account is created!";
+    }
+
+    void OnLoginSuccess(LoginResult Result)
+    {
+        SceneManager.LoadSceneAsync(1);
+    }
+
+    void OnError(PlayFabError Error)
+    {
+        messageText.text = Error.ErrorMessage;
+        Debug.Log(Error.GenerateErrorReport());
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Login();
+     
     }
 
     // Update is called once per frame
-    void Login()
-    {
-        var request = new LoginWithCustomIDRequest
-        {
-            CustomId = SystemInfo.deviceUniqueIdentifier,
-            CreateAccount = true
-        };
-        PlayFabClientAPI.LoginWithCustomID(request, OnSuccess, OnError);
-    }
-
-    void OnLoginSuccess(LoginResult result)
-    {
-        Debug.Log("Successful login/account create!");
-      
-    }
-
-    void OnSuccess(LoginResult result)
-    {
-        Debug.Log("Successful Login/Account create!");
-    }
-
-    void OnError(PlayFabError error)
-    {
-        messageText.text = error.ErrorMessage;
-        Debug.Log(error.GenerateErrorReport());
-    }
 
 
 
 
-    //                      CLASSIFICA    
+    /*                     CLASSIFICA    
     public void SendLeaderboard(int score)
     {
         var request = new UpdatePlayerStatisticsRequest
@@ -117,6 +127,7 @@ public class PlayFabManager : MonoBehaviour
         };
         PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnError);
 
+
         void OnLeaderboardGet(GetLeaderboardResult result)
         {
             foreach (var item in result.Leaderboard)
@@ -125,4 +136,7 @@ public class PlayFabManager : MonoBehaviour
             }
         }
     }
+    */
+    #endregion
+
 }
