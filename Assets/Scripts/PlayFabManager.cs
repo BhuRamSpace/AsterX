@@ -96,7 +96,7 @@ public class PlayFabManager : MonoBehaviour
 
 
 
-    /*                     CLASSIFICA    
+    /*                   CLASSIFICA    
     public void SendLeaderboard(int score)
     {
         var request = new UpdatePlayerStatisticsRequest
@@ -116,6 +116,8 @@ public class PlayFabManager : MonoBehaviour
     {
         Debug.Log("Successfull leaderboard sent");
     }
+
+   
 
     public void GetLeaderboard()
     {
