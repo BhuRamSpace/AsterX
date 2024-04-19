@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JetScript : MonoBehaviour
 {
-    public Transform transform;
+    new public Transform transform;
     public float speed = 5f;
     public float speed2 = -5f;
     public float rotationSpeed = 5f;
