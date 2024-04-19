@@ -15,6 +15,30 @@ public class PlayFabManager : MonoBehaviour
     public TMP_Text messageText;
     public TMP_InputField emailInput;
     public TMP_InputField passwordInput;
+    private static PlayFabManager instance;
+
+
+
+    public static PlayFabManager Instance
+    {
+        get
+        {
+            // Se l'istanza non è stata ancora creata, crea un'istanza nuova
+            if (instance == null)
+            {
+                // Trova l'oggetto PlayFabManager nella scena o crea uno nuovo se non esiste
+                instance = FindObjectOfType<PlayFabManager>();
+
+                // Se non esiste, crea un nuovo oggetto PlayFabManager nella scena
+                if (instance == null)
+                {
+                    GameObject obj = new GameObject("PlayFabManager");
+                    instance = obj.AddComponent<PlayFabManager>();
+                }
+            }
+            return instance;
+        }
+    }
 
 
     //Register/Login/ResetPassword
@@ -48,6 +72,11 @@ public class PlayFabManager : MonoBehaviour
         
         };
         PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnError);
+    }
+
+    public bool IsLoggedIn()
+    {
+        return PlayFabClientAPI.IsClientLoggedIn();
     }
 
     public void RecoverUser()
@@ -84,61 +113,6 @@ public class PlayFabManager : MonoBehaviour
         Debug.Log(Error.GenerateErrorReport());
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-     
-    }
-
-    // Update is called once per frame
-
-
-
-
-    /*                   CLASSIFICA    
-    public void SendLeaderboard(int score)
-    {
-        var request = new UpdatePlayerStatisticsRequest
-        {
-            Statistics = new List<StatisticUpdate>
-            {
-                new StatisticUpdate
-                {
-                    StatisticName ="PlatformScore",
-                    Value = score
-                }
-            }
-        };
-        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
-    }
-    void OnLeaderboardUpdate(UpdatePlayerStatisticsResult result)
-    {
-        Debug.Log("Successfull leaderboard sent");
-    }
-
-   
-
-    public void GetLeaderboard()
-    {
-        var request = new GetLeaderboardRequest
-        {
-            StatisticName = "PlatformScore",
-            StartPosition = 0,
-            MaxResultsCount = 10,
-        };
-        PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnError);
-
-
-        void OnLeaderboardGet(GetLeaderboardResult result)
-        {
-            foreach (var item in result.Leaderboard)
-            {
-                Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
-            }
-        }
-    }
-    */
     #endregion
 
 }
