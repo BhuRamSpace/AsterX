@@ -2,12 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using PlayFab;
-using PlayFab.ClientModels;
-using PlayFab.MultiplayerModels;
-using UnityEngine.UI;
-using TMPro;
-using System;
+
 
 public class GameController : MonoBehaviour
 {
@@ -37,7 +32,6 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         gameOver.SetActive(true);
-        FindObjectOfType<PointManager>().SubmitScoreToPlayFab();
 
     }
 
