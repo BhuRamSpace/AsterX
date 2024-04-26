@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -51597568760507620}
   m_Layer: 0
   m_Name: L2BluMeteorite
-  m_TagString: Meteoriti
+  m_TagString: L2Meteoriti
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1190173075
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d482d53fa29140a4fb3c25a594aa98a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

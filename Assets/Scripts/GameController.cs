@@ -41,6 +41,13 @@ public class GameController : MonoBehaviour
 
     }
 
+    public void L2GameOver()
+    {
+        gameOver.SetActive(true);
+        FindObjectOfType<L2PointManager>().SubmitScoreToPlayFab();
+
+    }
+
     public void resumeGame()
     {
         pauseMenu.SetActive(false);

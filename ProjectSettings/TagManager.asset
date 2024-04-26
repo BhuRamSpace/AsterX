@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Undefined
   - Meteoriti
-  - Bullet
+  - L2Meteoriti
   layers:
   - Default
   - TransparentFX
@@ -40,12 +41,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background Layer
-    uniqueID: 3860696869
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Top Layer
-    uniqueID: 1190173075
     locked: 0

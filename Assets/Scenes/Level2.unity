@@ -233,7 +233,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1190173075
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8558180421587574d86d4c2ca7cfa40b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc196028dc2c2d409c994068a9b7ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jetBullet: {fileID: 385333878630510101, guid: db694eb7bb8495841a64ddcb9040d823, type: 3}
+  jetBullet: {fileID: 385333878630510101, guid: f0c218380815caf4a9b21713804718a6, type: 3}
   spawnPoint1: {fileID: 1919546568}
   spawnPoint2: {fileID: 51645745}
   bulletSpawnTime: 0.1
@@ -795,12 +795,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   met:
-  - {fileID: 8381309767063451439, guid: e11d4c3a0907dd8468dee8773e03dadb, type: 3}
-  - {fileID: 2626522859297296760, guid: d90957c185f21604eaceedf487ca8d72, type: 3}
-  - {fileID: 9217530490098717790, guid: 0f81631923687ed479ae9eae5289e4cf, type: 3}
-  - {fileID: 4563750266444304671, guid: cdb8f39013412f04ba15955aad0ba54f, type: 3}
-  - {fileID: 8534085412639673407, guid: 13fd76c38928a9b4cb845200e909a8e9, type: 3}
-  - {fileID: 410598835646575602, guid: e248a0ee3c35548479dc2e0d35dac257, type: 3}
+  - {fileID: 8381309767063451439, guid: 15a654c03846ab64c8b9f798bebfb404, type: 3}
+  - {fileID: 2626522859297296760, guid: 834bd2974d7638544b54d1a57d1a8352, type: 3}
+  - {fileID: 9217530490098717790, guid: ba13c65d79e7766488b3dc7c7fc22b8b, type: 3}
+  - {fileID: 4563750266444304671, guid: 30c268df38ab8ce4793fce5b463061ea, type: 3}
+  - {fileID: 8534085412639673407, guid: 5d6fa1e7aa0ba2e45aafeacb51905110, type: 3}
+  - {fileID: 410598835646575602, guid: b3752d162b992b24ab2d71a070fad24f, type: 3}
 --- !u!50 &511548777
 Rigidbody2D:
   serializedVersion: 4
@@ -1704,7 +1704,6 @@ GameObject:
   - component: {fileID: 1015988295}
   - component: {fileID: 1015988298}
   - component: {fileID: 1015988297}
-  - component: {fileID: 1015988296}
   m_Layer: 5
   m_Name: LevelComplete
   m_TagString: Untagged
@@ -1735,21 +1734,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1015988296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015988294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab63f87fde9bd8847899f09ff3d493d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
-  pauseButton: {fileID: 0}
-  gameOver: {fileID: 0}
 --- !u!114 &1015988297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2961,7 +2945,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1990613511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02246912176a6aa45867cd07203c98c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 26ecc6c5c2328f64c83e7fd0dcf894c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1723529437}
