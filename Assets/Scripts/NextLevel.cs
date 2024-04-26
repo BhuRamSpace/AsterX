@@ -24,7 +24,6 @@ public class NextLevel : MonoBehaviour
     public void NextButton()
     {
         SceneManager.LoadSceneAsync(3);
-        Time.timeScale = 1f;
     }
 
 
