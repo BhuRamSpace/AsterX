@@ -5,7 +5,7 @@ using UnityEngine;
 public class L2MoveMeteore : MonoBehaviour
 {
     public Transform myTransform;
-    public float speed = 8.0f;
+    public float speed = 10.0f;
     public GameObject explosion;
 
     // Start is called before the first frame update

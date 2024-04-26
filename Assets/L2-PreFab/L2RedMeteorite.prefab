@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -8249679729994855204}
   - component: {fileID: 4956287944082259800}
   m_Layer: 0
-  m_Name: RedMeteorite
+  m_Name: L2RedMeteorite
   m_TagString: Meteoriti
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,5 +132,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTransform: {fileID: 0}
-  speed: 8
+  speed: 10
   explosion: {fileID: 391974832799558255, guid: 6951b2c40dc0b6f419fda9818f5bd55b, type: 3}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6945608653408134775}
   - component: {fileID: -51597568760507620}
   m_Layer: 0
-  m_Name: BluMeteorite
+  m_Name: L2BluMeteorite
   m_TagString: Meteoriti
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,5 +154,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTransform: {fileID: 0}
-  speed: 8
+  speed: 10
   explosion: {fileID: 391974832799558255, guid: 6951b2c40dc0b6f419fda9818f5bd55b, type: 3}
