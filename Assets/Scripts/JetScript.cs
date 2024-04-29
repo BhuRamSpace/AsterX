@@ -54,9 +54,16 @@ public class JetScript : MonoBehaviour
 
      private void OnTriggerEnter2D(Collider2D collision)
      {
-         if(collision.gameObject.tag == "Meteoriti")
-         {
+        if (collision.gameObject.tag == "Meteoriti")
+        {
             gameController.GameOver();
+            Destroy(gameObject);
+            GameObject expJet = Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(expJet, 0.4f);
+        }
+        else if (collision.gameObject.tag == "L2Meteoriti")
+         {
+            gameController.L2GameOver();
             Destroy(gameObject);
             GameObject expJet=Instantiate(explosion,transform.position,Quaternion.identity);
             Destroy(expJet,0.4f);
