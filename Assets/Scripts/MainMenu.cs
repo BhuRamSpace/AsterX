@@ -22,5 +22,10 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void Leaderboard()
+    {
+        SceneManager.LoadSceneAsync(4);
+    }
+
 
 }
