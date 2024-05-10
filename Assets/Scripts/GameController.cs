@@ -37,14 +37,14 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         gameOver.SetActive(true);
-        FindObjectOfType<PointManager>().SubmitScoreToPlayFab();
+        FindObjectOfType<LeaderboardManager>().SubmitScoreToPlayFab();
 
     }
 
     public void L2GameOver()
     {
         gameOver.SetActive(true);
-        FindObjectOfType<L2PointManager>().SubmitScoreToPlayFab();
+        FindObjectOfType<LeaderboardManager>().SubmitScoreToPlayFab();
 
     }
 

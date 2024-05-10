@@ -12,11 +12,11 @@ public class LeaderboardManager : MonoBehaviour
 {
 
     public PointManager PointManager;
+
     public void GoBack()
     {
         SceneManager.LoadSceneAsync(1);
     }
-
 
     public void SubmitScoreToPlayFab()
     {
