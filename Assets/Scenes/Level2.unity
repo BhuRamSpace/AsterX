@@ -1429,6 +1429,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PointManager: {fileID: 0}
+  L2PointManager: {fileID: 0}
+  rowPrefab: {fileID: 0}
+  rowsParent: {fileID: 0}
 --- !u!4 &872501539
 Transform:
   m_ObjectHideFlags: 0
@@ -3114,9 +3117,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872501538}
-        m_TargetAssemblyTypeName: LeaderboardManager, Assembly-CSharp
-        m_MethodName: GetLeaderboard
+      - m_Target: {fileID: 519420033}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: Leaderboard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
