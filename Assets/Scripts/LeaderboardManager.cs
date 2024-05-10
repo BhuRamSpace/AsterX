@@ -14,62 +14,21 @@ using Newtonsoft.Json;
 public class LeaderboardManager : MonoBehaviour
 {
 
-    public PointManager PointManager;
-    public L2PointManager L2PointManager;
     public GameObject rowPrefab;
     public Transform rowsParent;
+
 
     public void GoBack()
     {
         SceneManager.LoadSceneAsync(1);
     }
 
-    public void SubmitScoreToPlayFab()
+    void Start()
     {
-        // Verifica se l'utente è autenticato
-        if (!PlayFabManager.Instance.IsLoggedIn())
-        {
-            // Se l'utente non è autenticato, visualizza un messaggio di errore o avvia il processo di login
-            Debug.LogError("User is not logged in. Cannot submit score to PlayFab.");
-            return;
-        }
-
-        int value;
-
-        // Applica la condizione per assegnare il valore corretto
-        if (PointManager.score >= 500)
-        {
-            value = L2PointManager.score;
-        }
-        else
-        {
-            value = PointManager.score;
-        }
-
-        var request = new UpdatePlayerStatisticsRequest
-        {
-            Statistics = new List<StatisticUpdate>
-            {
-                new StatisticUpdate
-                {
-                    StatisticName = "Score",
-                    Value = value
-                }
-            }
-        };
-
-        PlayFabClientAPI.UpdatePlayerStatistics(request, OnScoreSubmitted, OnError);
+        // Chiamare GetLeaderboard() quando lo script viene avviato
+        GetLeaderboard();
     }
 
-    void OnScoreSubmitted(UpdatePlayerStatisticsResult result)
-    {
-        Debug.Log("Score submitted successfully!");
-    }
-
-    void OnError(PlayFabError error)
-    {
-        Debug.LogError("Error submitting score: " + error.ErrorMessage);
-    }
 
     public void GetLeaderboard()
     {
@@ -82,6 +41,11 @@ public class LeaderboardManager : MonoBehaviour
         PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnError);
     }
 
+    void OnError(PlayFabError error)
+    {
+        Debug.LogError("Error submitting score: " + error.ErrorMessage);
+    }
+
     void OnLeaderboardGet(GetLeaderboardResult result)
     {
         foreach (var item in result.Leaderboard)
@@ -91,8 +55,9 @@ public class LeaderboardManager : MonoBehaviour
             texts[0].text = item.Position.ToString();
             texts[1].text = item.PlayFabId;
             texts[2].text = item.StatValue.ToString();
-            Debug.Log(string.Format("PLACE:{0} | ID:{1} | VALUE:{12}",
+            Debug.Log(string.Format("PLACE:{0} | ID:{1} | VALUE:{2}",
                 item.Position,item.PlayFabId,item.StatValue));
         }
     }
+
 }
