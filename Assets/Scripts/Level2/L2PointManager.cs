@@ -65,4 +65,23 @@ public class L2PointManager : MonoBehaviour
         Debug.LogError("Error submitting score: " + error.ErrorMessage);
     }
 
+
+    public void GetLeaderboard()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "Score",
+            StartPosition = 0,
+            MaxResultsCount = 10
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnError);
+    }
+
+    void OnLeaderboardGet(GetLeaderboardResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {
+            Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
+        }
+    }
 }
