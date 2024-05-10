@@ -14,8 +14,6 @@ using Newtonsoft.Json;
 public class LeaderboardManager : MonoBehaviour
 {
 
-    public PointManager PointManager;
-    public L2PointManager L2PointManager;
     public GameObject rowPrefab;
     public Transform rowsParent;
 
@@ -30,7 +28,7 @@ public class LeaderboardManager : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
     }
 
-    public void SubmitScoreToPlayFab()
+    void Start()
     {
         // Verifica se l'utente � autenticato
         if (!PlayFabManager.Instance.IsLoggedIn())
@@ -67,15 +65,6 @@ public class LeaderboardManager : MonoBehaviour
         PlayFabClientAPI.UpdatePlayerStatistics(request, OnScoreSubmitted, OnError);
     }
 
-    void OnScoreSubmitted(UpdatePlayerStatisticsResult result)
-    {
-        Debug.Log("Score submitted successfully!");
-    }
-
-    void OnError(PlayFabError error)
-    {
-        Debug.LogError("Error submitting score: " + error.ErrorMessage);
-    }
 
     public void GetLeaderboard()
     {
@@ -86,6 +75,11 @@ public class LeaderboardManager : MonoBehaviour
             MaxResultsCount = 10
         };
         PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnError);
+    }
+
+    void OnError(PlayFabError error)
+    {
+        Debug.LogError("Error submitting score: " + error.ErrorMessage);
     }
 
     void OnLeaderboardGet(GetLeaderboardResult result)
@@ -102,8 +96,7 @@ public class LeaderboardManager : MonoBehaviour
             texts[0].text = item.Position.ToString();
             texts[1].text = item.PlayFabId;
             texts[2].text = item.StatValue.ToString();
-
-            Debug.Log(string.Format("PLACE:{0} | ID:{1} | VALUE:{12}",
+            Debug.Log(string.Format("PLACE:{0} | ID:{1} | VALUE:{2}",
                 item.Position,item.PlayFabId,item.StatValue));
 
         }
