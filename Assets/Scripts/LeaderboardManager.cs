@@ -91,7 +91,8 @@ public class LeaderboardManager : MonoBehaviour
             texts[0].text = item.Position.ToString();
             texts[1].text = item.PlayFabId;
             texts[2].text = item.StatValue.ToString();
-            Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
+            Debug.Log(string.Format("PLACE:{0} | ID:{1} | VALUE:{12}",
+                item.Position,item.PlayFabId,item.StatValue));
         }
     }
 }
