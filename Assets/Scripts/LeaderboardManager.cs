@@ -28,44 +28,6 @@ public class LeaderboardManager : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
     }
 
-    void Start()
-    {
-        // Verifica se l'utente � autenticato
-        if (!PlayFabManager.Instance.IsLoggedIn())
-        {
-            // Se l'utente non � autenticato, visualizza un messaggio di errore o avvia il processo di login
-            Debug.LogError("User is not logged in. Cannot submit score to PlayFab.");
-            return;
-        }
-
-        int value;
-
-        // Applica la condizione per assegnare il valore corretto
-        if (PointManager.score >= 500)
-        {
-            value = L2PointManager.score;
-        }
-        else
-        {
-            value = PointManager.score;
-        }
-
-        var request = new UpdatePlayerStatisticsRequest
-        {
-            Statistics = new List<StatisticUpdate>
-            {
-                new StatisticUpdate
-                {
-                    StatisticName = "Score",
-                    Value = value
-                }
-            }
-        };
-
-        PlayFabClientAPI.UpdatePlayerStatistics(request, OnScoreSubmitted, OnError);
-    }
-
-
     public void GetLeaderboard()
     {
         var request = new GetLeaderboardRequest
