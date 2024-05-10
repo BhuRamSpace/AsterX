@@ -6,12 +6,18 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
+using Newtonsoft.Json;
+
 
 
 public class LeaderboardManager : MonoBehaviour
 {
 
     public PointManager PointManager;
+    public L2PointManager L2PointManager;
+    public GameObject rowPrefab;
+    public Transform rowsParent;
 
     public void GoBack()
     {
@@ -27,6 +33,19 @@ public class LeaderboardManager : MonoBehaviour
             Debug.LogError("User is not logged in. Cannot submit score to PlayFab.");
             return;
         }
+
+        int value;
+
+        // Applica la condizione per assegnare il valore corretto
+        if (PointManager.score >= 500)
+        {
+            value = L2PointManager.score;
+        }
+        else
+        {
+            value = PointManager.score;
+        }
+
         var request = new UpdatePlayerStatisticsRequest
         {
             Statistics = new List<StatisticUpdate>
@@ -34,7 +53,7 @@ public class LeaderboardManager : MonoBehaviour
                 new StatisticUpdate
                 {
                     StatisticName = "Score",
-                    Value = PointManager.score
+                    Value = value
                 }
             }
         };
@@ -67,6 +86,11 @@ public class LeaderboardManager : MonoBehaviour
     {
         foreach (var item in result.Leaderboard)
         {
+            GameObject newGo = Instantiate(rowPrefab, rowsParent);
+            Text[] texts = newGo.GetComponentsInChildren<Text>();
+            texts[0].text = item.Position.ToString();
+            texts[1].text = item.PlayFabId;
+            texts[2].text = item.StatValue.ToString();
             Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
         }
     }
