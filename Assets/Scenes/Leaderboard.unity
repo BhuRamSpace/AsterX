@@ -518,8 +518,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1549779547}
-        m_TargetAssemblyTypeName: LeaderboardManager, Assembly-CSharp
-        m_MethodName: GoBack
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1044,7 +1044,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1549779543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b0c9f85e04f60a478d2776f127d2daf, type: 3}
+  m_Script: {fileID: 11500000, guid: ba40828bbf38cd5429157a1cb4b5b5a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1579557854
