@@ -32,10 +32,10 @@ public class LeaderboardManager : MonoBehaviour
 
     public void SubmitScoreToPlayFab()
     {
-        // Verifica se l'utente è autenticato
+        // Verifica se l'utente ï¿½ autenticato
         if (!PlayFabManager.Instance.IsLoggedIn())
         {
-            // Se l'utente non è autenticato, visualizza un messaggio di errore o avvia il processo di login
+            // Se l'utente non ï¿½ autenticato, visualizza un messaggio di errore o avvia il processo di login
             Debug.LogError("User is not logged in. Cannot submit score to PlayFab.");
             return;
         }
@@ -102,9 +102,10 @@ public class LeaderboardManager : MonoBehaviour
             texts[0].text = item.Position.ToString();
             texts[1].text = item.PlayFabId;
             texts[2].text = item.StatValue.ToString();
-            
-            Debug.Log(string.Format("PLACE:{0} | ID : {1} | VALUE: {2}",
-                item.Position, item.PlayFabId, item.StatValue));
+
+            Debug.Log(string.Format("PLACE:{0} | ID:{1} | VALUE:{12}",
+                item.Position,item.PlayFabId,item.StatValue));
+
         }
     }
 
