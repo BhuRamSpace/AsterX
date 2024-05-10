@@ -19,6 +19,12 @@ public class LeaderboardManager : MonoBehaviour
     public GameObject rowPrefab;
     public Transform rowsParent;
 
+
+    public void Start()
+    {
+        GetLeaderboard();
+    }
+
     public void GoBack()
     {
         SceneManager.LoadSceneAsync(1);
@@ -84,6 +90,11 @@ public class LeaderboardManager : MonoBehaviour
 
     void OnLeaderboardGet(GetLeaderboardResult result)
     {
+        foreach(Transform item in rowsParent)
+        {
+            Destroy(item.gameObject);
+        }
+
         foreach (var item in result.Leaderboard)
         {
             GameObject newGo = Instantiate(rowPrefab, rowsParent);
@@ -91,7 +102,10 @@ public class LeaderboardManager : MonoBehaviour
             texts[0].text = item.Position.ToString();
             texts[1].text = item.PlayFabId;
             texts[2].text = item.StatValue.ToString();
-            Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
+            
+            Debug.Log(string.Format("PLACE:{0} | ID : {1} | VALUE: {2}",
+                item.Position, item.PlayFabId, item.StatValue));
         }
     }
+
 }
