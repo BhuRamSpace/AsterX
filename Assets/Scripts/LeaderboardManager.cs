@@ -8,14 +8,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using Newtonsoft.Json;
+using TMPro;
 
 
 
 public class LeaderboardManager : MonoBehaviour
 {
-
+    
     public GameObject rowPrefab;
     public Transform rowsParent;
+
 
 
     public void GoBack()
@@ -45,6 +47,8 @@ public class LeaderboardManager : MonoBehaviour
     {
         Debug.LogError("Error submitting score: " + error.ErrorMessage);
     }
+
+
 
     void OnLeaderboardGet(GetLeaderboardResult result)
     {

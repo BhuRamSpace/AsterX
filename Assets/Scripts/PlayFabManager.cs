@@ -15,6 +15,11 @@ public class PlayFabManager : MonoBehaviour
     public TMP_Text messageText;
     public TMP_InputField emailInput;
     public TMP_InputField passwordInput;
+
+    [Header("Username")]
+    public TMP_InputField usernameInput;
+    public GameObject UsernamePage;
+
     private static PlayFabManager instance;
 
 
@@ -79,6 +84,31 @@ public class PlayFabManager : MonoBehaviour
         return PlayFabClientAPI.IsClientLoggedIn();
     }
 
+    public void OpenUsernamePage()
+    {
+        UsernamePage.SetActive(true);
+    }
+
+    public void CloseUsernamePage()
+    {
+        UsernamePage.SetActive(false);
+    }
+
+    public void RegisterUsername()
+    {
+        var request = new UpdateUserTitleDisplayNameRequest
+        {
+            DisplayName = usernameInput.text,
+        };
+        PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnDisplayNameUpdate, OnError);
+    }
+
+    void OnDisplayNameUpdate(UpdateUserTitleDisplayNameResult request)
+    {
+        Debug.Log("Update display name!");
+    }
+
+
     public void RecoverUser()
     {
         var request = new SendAccountRecoveryEmailRequest
@@ -91,11 +121,14 @@ public class PlayFabManager : MonoBehaviour
         PlayFabClientAPI.SendAccountRecoveryEmail(request, OnRecoverySuccess, OnError);
     }
 
+
+    
+
+
     private void OnRecoverySuccess(SendAccountRecoveryEmailResult result)
     {
         messageText.text = "Recovery Mail Sent";
     }
-
 
 
     void OnRegisterSuccess(RegisterPlayFabUserResult Result) {
