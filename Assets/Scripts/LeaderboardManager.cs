@@ -61,10 +61,10 @@ public class LeaderboardManager : MonoBehaviour
             GameObject newGo = Instantiate(rowPrefab, rowsParent);
             Text[] texts = newGo.GetComponentsInChildren<Text>();
             texts[0].text = (item.Position + 1).ToString();
-            texts[1].text = item.PlayFabId;
+            texts[1].text = item.DisplayName;
             texts[2].text = item.StatValue.ToString();
             Debug.Log(string.Format("PLACE:{0} | ID:{1} | VALUE:{2}",
-                item.Position,item.PlayFabId,item.StatValue));
+                item.Position,item.DisplayName,item.StatValue));
         }
     }
 
