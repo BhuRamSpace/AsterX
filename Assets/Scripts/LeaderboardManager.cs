@@ -59,5 +59,4 @@ public class LeaderboardManager : MonoBehaviour
                 item.Position,item.PlayFabId,item.StatValue));
         }
     }
-
 }
