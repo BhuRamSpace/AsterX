@@ -84,10 +84,6 @@ public class PlayFabManager : MonoBehaviour
         return PlayFabClientAPI.IsClientLoggedIn();
     }
 
-    public void OpenUsernamePage()
-    {
-        UsernamePage.SetActive(true);
-    }
 
     public void CloseUsernamePage()
     {
@@ -133,6 +129,7 @@ public class PlayFabManager : MonoBehaviour
 
     void OnRegisterSuccess(RegisterPlayFabUserResult Result) {
         messageText.text = "New account is created!";
+        UsernamePage.SetActive(true);
     }
 
     void OnLoginSuccess(LoginResult Result)
