@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms.Impl;
 using PlayFab.ClientModels;
 using PlayFab;
 
-public class PointManager : MonoBehaviour
+public class L3PointManager : MonoBehaviour
 {
     public static int score;
     public TMP_Text scoreText;
@@ -14,8 +14,9 @@ public class PointManager : MonoBehaviour
     void Start()
     {
         ResetScore();
+        Time.timeScale = 1f;
     }
-    
+
     public void UpdateScore(int points)
     {
         score += points;
@@ -25,7 +26,7 @@ public class PointManager : MonoBehaviour
     public void ResetScore()
     {
         // Reimposta lo score a zero
-        score = 0;
+        score = 1000;
         scoreText.text = "Score: " + score;
     }
 

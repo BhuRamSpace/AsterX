@@ -48,6 +48,13 @@ public class GameController : MonoBehaviour
 
     }
 
+    public void L3GameOver()
+    {
+        gameOver.SetActive(true);
+        FindObjectOfType<L3PointManager>().SubmitScoreToPlayFab();
+
+    }
+
     public void resumeGame()
     {
         Time.timeScale = 1f;
