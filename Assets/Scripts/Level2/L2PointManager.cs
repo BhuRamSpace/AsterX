@@ -40,20 +40,6 @@ public class L2PointManager : MonoBehaviour
             return;
         }
 
-        /*int value;
-
-        // Applica la condizione per assegnare il valore corretto
-        if (PointManager.score >= 500)
-        {
-            //L2PointManager.score;
-            value = score;
-        }
-        else
-        {
-            value = score;
-        }
-        */
-
         var request = new UpdatePlayerStatisticsRequest
         {
             Statistics = new List<StatisticUpdate>

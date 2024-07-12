@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NextLevel : MonoBehaviour
+public class L2NextLevel : MonoBehaviour
 {
     public GameObject levelComplete;
     public GameObject pauseButton;
@@ -17,21 +17,19 @@ public class NextLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckLevelComplete();
+        CheckLevelComplete2();
 
     }
 
-
-    public void NextButton()
+    public void NextButton2()
     {
-        SceneManager.LoadSceneAsync(3);
+        SceneManager.LoadSceneAsync(4);
     }
 
 
-
-    public void CheckLevelComplete()
+    public void CheckLevelComplete2()
     {
-        if (PointManager.score >= 500)
+        if (L2PointManager.score >= 1000)
         {
             Time.timeScale = 0f;
             levelComplete.SetActive(true);
