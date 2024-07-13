@@ -14,10 +14,15 @@ public class EnemyScript : MonoBehaviour
     public Transform newBullet3;
     public GameObject enemyBullet;
     public GameObject enemyBullet2;
+    public GameController gameController;
 
     private Transform myTransform;
     private float targetPositionX;
     private bool lastFiredLeft = true;
+
+    public int maxHealth = 100;
+    private int currentHealth;
+    public HealthBarScript healthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +32,9 @@ public class EnemyScript : MonoBehaviour
         StartCoroutine(ChangeDirectionRoutine());
         StartCoroutine(EnemyShooting());
         StartCoroutine(EnemySpecialShooting());
+
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -37,11 +45,29 @@ public class EnemyScript : MonoBehaviour
         myTransform.position = new Vector3(newX, myTransform.position.y, myTransform.position.z);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void TakeDamage(int damage)
     {
-        Destroy(gameObject);
-        GameObject expJet = Instantiate(explosion, myTransform.position, Quaternion.identity);
-        Destroy(expJet, 0.4f);
+        Debug.Log("Danno ricevuto: " + damage); // Aggiungi un messaggio di debug per il danno ricevuto
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    void Die()
+    {
+        // Aggiungi logica di morte (es. effetto di esplosione, rimuovere il nemico dalla scena, ecc.)
+        GameObject exp = Instantiate(explosion, myTransform.position, Quaternion.identity);
+        Destroy(exp, 0.4f); // Distruggi l'esplosione dopo 0.4 secondi
+        Destroy(gameObject); // Distruggi il nemico
     }
 
     IEnumerator ChangeDirectionRoutine()
@@ -71,12 +97,12 @@ public class EnemyScript : MonoBehaviour
     {
         Debug.Log("Firing special bullet...");
         Instantiate(enemyBullet2, newBullet3.position, Quaternion.identity);
-   
     }
 
     IEnumerator EnemyShooting()
     {
-        while (true) {
+        while (true)
+        {
             yield return new WaitForSeconds(2.0f);
             EnemyFire();
         }

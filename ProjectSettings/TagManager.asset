@@ -4,9 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Undefined
   - Meteoriti
   - L2Meteoriti
+  - Bullet
+  - L3newBullet
+  - Enemy
+  - Electro
+  - SpecialBullet
   layers:
   - Default
   - TransparentFX

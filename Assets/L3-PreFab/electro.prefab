@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2867509118540100517}
   - component: {fileID: 2699007931073141461}
   - component: {fileID: -3838355793729087914}
+  - component: {fileID: 8759981699977179462}
   m_Layer: 0
   m_Name: electro
-  m_TagString: Untagged
+  m_TagString: SpecialBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,4 +100,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTransform: {fileID: 0}
   bulletSpeed: 10
-  explosion: {fileID: 0}
+  explosion: {fileID: 391974832799558255, guid: 6951b2c40dc0b6f419fda9818f5bd55b, type: 3}
+--- !u!68 &8759981699977179462
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991923826264544974}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.04938835, y: 1.4675831}
+  - {x: -0.060973614, y: 1.2439076}
+  - {x: -0.4841969, y: 0.9250848}
+  - {x: -0.19874692, y: 0.6866489}
+  - {x: -0.13251127, y: 0.47350565}
+  - {x: -0.4416909, y: 0.2687673}
+  - {x: -0.18834591, y: 0.05275435}
+  - {x: -0.40830058, y: -0.039149463}
+  - {x: -0.15662473, y: -0.20649154}
+  - {x: -0.6131167, y: -0.37476775}
+  - {x: -0.22888838, y: -0.42692766}
+  - {x: -0.28382486, y: -0.77594227}
+  - {x: -0.080935515, y: -0.9811326}
+  - {x: -0.007764972, y: -1.5374681}
+  - {x: 0.10482493, y: -0.94347274}
+  - {x: 0.3872633, y: -0.753006}
+  - {x: 0.18541715, y: -0.5752266}
+  - {x: 0.5831648, y: -0.2976703}
+  - {x: 0.24622622, y: -0.14030743}
+  - {x: 0.14962399, y: 0.07740856}
+  - {x: 0.5268898, y: 0.33467063}
+  - {x: 0.076951295, y: 0.49644554}
+  - {x: 0.24258788, y: 0.62531847}
+  - {x: 0.06547995, y: 0.7715837}
+  - {x: 0.4227519, y: 0.9895862}
+  - {x: 0.07242757, y: 1.2490461}
+  - {x: 0.014445841, y: 1.4792306}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

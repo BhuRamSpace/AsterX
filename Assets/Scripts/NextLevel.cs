@@ -31,7 +31,7 @@ public class NextLevel : MonoBehaviour
 
     public void CheckLevelComplete()
     {
-        if (PointManager.score >= 500)
+        if (PointManager.score >= 200)
         {
             Time.timeScale = 0f;
             levelComplete.SetActive(true);

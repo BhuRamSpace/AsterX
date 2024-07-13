@@ -7,13 +7,11 @@ public class L3newBullet : MonoBehaviour
     public Transform myTransform;
     public float bulletSpeed = 10.0f; // Rinomina la variabile di velocità
     public GameObject explosion;
-    private L3PointManager pointManager;
 
     // Start is called before the first frame update
     void Start()
     {
         myTransform = transform;
-        pointManager = GameObject.Find("PointManager").GetComponent<L3PointManager>();
     }
 
     // Update is called once per frame
@@ -33,14 +31,13 @@ public class L3newBullet : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collisionB)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collisionB.gameObject.tag == "Jet")
+        if (collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            GameObject expJet = Instantiate(explosion, myTransform.position, Quaternion.identity);
-            Destroy(expJet, 0.4f);
-            pointManager.UpdateScore(50);
+            GameObject exp = Instantiate(explosion, transform.position, Quaternion.identity);  // Instanzia l'esplosione
+            Destroy(exp, 0.4f);
         }
     }
 }

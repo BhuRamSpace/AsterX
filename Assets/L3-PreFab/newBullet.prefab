@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3054262791659057299}
   - component: {fileID: 454642290029310610}
   - component: {fileID: 8066158252431716707}
+  - component: {fileID: -3869592492000345439}
   m_Layer: 0
   m_Name: newBullet
-  m_TagString: Untagged
+  m_TagString: L3newBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,4 +100,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTransform: {fileID: 0}
   bulletSpeed: 12
-  explosion: {fileID: 0}
+  explosion: {fileID: 391974832799558255, guid: 6951b2c40dc0b6f419fda9818f5bd55b, type: 3}
+--- !u!61 &-3869592492000345439
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2724984077019201987}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.020948932, y: -0.013965845}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.98, y: 3.4}
+    newSize: {x: 3.4, y: 0.98}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.43532696, y: 2.9251566}
+  m_EdgeRadius: 0

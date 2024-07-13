@@ -29,7 +29,7 @@ public class L2NextLevel : MonoBehaviour
 
     public void CheckLevelComplete2()
     {
-        if (L2PointManager.score >= 1000)
+        if (L2PointManager.score >= 700)
         {
             Time.timeScale = 0f;
             levelComplete.SetActive(true);
