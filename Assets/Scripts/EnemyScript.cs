@@ -24,6 +24,9 @@ public class EnemyScript : MonoBehaviour
     private int currentHealth;
     public HealthBarScript healthBar;
 
+    public GameObject levelComplete;
+    public GameObject pauseButton;
+
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +72,10 @@ public class EnemyScript : MonoBehaviour
         GameObject exp = Instantiate(explosion, myTransform.position, Quaternion.identity);
         Destroy(exp, 0.4f); // Distruggi l'esplosione dopo 0.4 secondi
         Destroy(gameObject); // Distruggi il nemico
+
+        Time.timeScale = 0f; // Pausa il tempo di gioco
+        levelComplete.SetActive(true);
+        pauseButton.SetActive(false);
     }
 
     IEnumerator ChangeDirectionRoutine()

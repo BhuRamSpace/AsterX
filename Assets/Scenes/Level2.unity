@@ -335,8 +335,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transform: {fileID: 227299173}
-  speed: 2
-  rotationSpeed: 3
+  speed: 1
+  rotationSpeed: 2
   explosion: {fileID: 391974832799558255, guid: 6951b2c40dc0b6f419fda9818f5bd55b, type: 3}
   gameController: {fileID: 2001702920}
   maxHealth: 100
