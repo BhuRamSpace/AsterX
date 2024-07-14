@@ -24,6 +24,7 @@ public class EnemyScript : MonoBehaviour
     private int currentHealth;
     public HealthBarScript healthBar;
 
+
     // Start is called before the first frame update
     void Start()
     {

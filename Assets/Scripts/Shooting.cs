@@ -7,7 +7,7 @@ public class Shooting : MonoBehaviour
     public GameObject jetBullet;
     public Transform spawnPoint1;
     public Transform spawnPoint2;
-    public float bulletSpawnTime=0.5f;
+    public float bulletSpawnTime = 0.5f;
     public GameObject flash;
 
     // Start is called before the first frame update
@@ -20,17 +20,26 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        DetectTouchAndFire();
     }
 
     void Fire()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            flash.SetActive(true);
-            Instantiate(jetBullet, spawnPoint1.position, Quaternion.identity);
-            Instantiate(jetBullet, spawnPoint2.position, Quaternion.identity);
+        flash.SetActive(true);
+        Instantiate(jetBullet, spawnPoint1.position, Quaternion.identity);
+        Instantiate(jetBullet, spawnPoint2.position, Quaternion.identity);
+        Invoke("DisableFlash", 0.1f); // Disattiva il flash dopo un breve intervallo
+    }
 
+    void DetectTouchAndFire()
+    {
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+            {
+                Fire();
+            }
         }
     }
 
@@ -39,8 +48,11 @@ public class Shooting : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(bulletSpawnTime);
-            Fire();
-            flash.SetActive(false);
         }
+    }
+
+    void DisableFlash()
+    {
+        flash.SetActive(false);
     }
 }

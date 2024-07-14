@@ -7,7 +7,6 @@ public class JetScript : MonoBehaviour
 {
     new public Transform transform;
     public float speed = 5f;
-    public float speed2 = -5f;
     public float rotationSpeed = 5f;
     public GameObject explosion;
     public GameController gameController;
@@ -32,15 +31,22 @@ public class JetScript : MonoBehaviour
 
     void Movement()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.touchCount > 0)
         {
-            transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, -25), rotationSpeed * Time.deltaTime);
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.position += new Vector3(speed2 * Time.deltaTime, 0, 0);
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 25), rotationSpeed * Time.deltaTime);
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Moved)
+            {
+                Vector2 touchDeltaPosition = touch.deltaPosition;
+                transform.position += new Vector3(touchDeltaPosition.x * speed * Time.deltaTime, 0, 0);
+                if (touchDeltaPosition.x > 0)
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, -25), rotationSpeed * Time.deltaTime);
+                }
+                else if (touchDeltaPosition.x < 0)
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 25), rotationSpeed * Time.deltaTime);
+                }
+            }
         }
 
         if (transform.rotation.z != 90)
@@ -71,7 +77,7 @@ public class JetScript : MonoBehaviour
     void Die()
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
-        Debug.Log("La scena attuale si chiana:" + currentSceneName);
+        Debug.Log("La scena attuale si chiama:" + currentSceneName);
         if (currentSceneName == "Level1")
         {
             gameController.GameOver();
@@ -93,26 +99,26 @@ public class JetScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Meteoriti")
         {
-            Debug.Log("Collided with L3newBullet"); // Debug
-            TakeDamage(50); // Chiama TakeDamage con un danno di 1
+            Debug.Log("Collided with Meteoriti");
+            TakeDamage(50);
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "L2Meteoriti")
         {
-            Debug.Log("Collided with L3newBullet"); // Debug
-            TakeDamage(50); // Chiama TakeDamage con un danno di 1
+            Debug.Log("Collided with L2Meteoriti");
+            TakeDamage(50);
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "L3newBullet")
         {
-            Debug.Log("Collided with L3newBullet"); // Debug
-            TakeDamage(10); // Chiama TakeDamage con un danno di 1
+            Debug.Log("Collided with L3newBullet");
+            TakeDamage(10);
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "SpecialBullet")
         {
-            Debug.Log("Collided with SpecialBullet"); // Debug
-            TakeDamage(30); // Chiama TakeDamage con un danno di 1
+            Debug.Log("Collided with SpecialBullet");
+            TakeDamage(30);
             Destroy(collision.gameObject);
         }
     }

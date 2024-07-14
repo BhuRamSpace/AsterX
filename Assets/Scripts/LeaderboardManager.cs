@@ -2,12 +2,12 @@ using PlayFab.ClientModels;
 using PlayFab;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager;
+//using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
+//using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using TMPro;
 
 

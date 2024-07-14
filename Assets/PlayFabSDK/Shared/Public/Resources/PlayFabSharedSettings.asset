@@ -15,7 +15,7 @@ MonoBehaviour:
   TitleId: C5719
   DeveloperSecretKey: RJTOQKFHSXH6117UWHMZHRJY7FSBFJ81AXP9XH3TMJ91GRA75C
   ProductionEnvironmentUrl: 
-  RequestType: 2
+  RequestType: 0
   DisableDeviceInfo: 0
   DisableFocusTimeCollection: 0
   RequestTimeout: 2000
