@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -3838355793729087914}
   - component: {fileID: 8759981699977179462}
   m_Layer: 0
-  m_Name: electro
+  m_Name: SpecialBullet
   m_TagString: SpecialBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTransform: {fileID: 0}
-  bulletSpeed: 10
+  bulletSpeed: 8
   explosion: {fileID: 391974832799558255, guid: 6951b2c40dc0b6f419fda9818f5bd55b, type: 3}
 --- !u!68 &8759981699977179462
 EdgeCollider2D:
