@@ -76,6 +76,7 @@ public class EnemyScript : MonoBehaviour
         Time.timeScale = 0f; // Pausa il tempo di gioco
         levelComplete.SetActive(true);
         pauseButton.SetActive(false);
+        FindObjectOfType<L3PointManager>().SubmitScoreToPlayFab();
     }
 
     IEnumerator ChangeDirectionRoutine()

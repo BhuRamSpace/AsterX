@@ -36,6 +36,7 @@ public class NextLevel : MonoBehaviour
             Time.timeScale = 0f;
             levelComplete.SetActive(true);
             pauseButton.SetActive(false);
+            FindObjectOfType<PointManager>().SubmitScoreToPlayFab();
         }
     }
 }

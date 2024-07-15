@@ -34,6 +34,7 @@ public class L2NextLevel : MonoBehaviour
             Time.timeScale = 0f;
             levelComplete.SetActive(true);
             pauseButton.SetActive(false);
+            FindObjectOfType<L2PointManager>().SubmitScoreToPlayFab();
         }
     }
 }
